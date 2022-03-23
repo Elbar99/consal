@@ -1,25 +1,45 @@
 from tkinter import *
+from random import *
 
-p = 15
-n = 30
+p = 6
+n = 4
 
 grill =  [[0 for j in range(p)] for i in range(n)]
 # print(tableau)
+
 def peut_tomber(i,j):
-    if grill[n][j] != 0:
-        grill[n-1][j] = 1
-    if grill[i][j] != 0:
-        grill[i-1][j] = 1
-    if (grill[i][j-1] or grill[i][j+1]) != 0:
-        grill[i][j] = 1
-        
+    if i == n-1: # tout en bas
+        return False
+    if grill[i+1][j]: # case juste en-dessous
+        return False
+    if j>0 and grill[i][j-1]: # à gauche
+        return False
+    if j<p-1 and grill[i][j+1]: # à droite
+        return False
+    return True
+
 
 def faire_tomber_un_bloc(j):
-    
+    i = 0
+    while peut_tomber(i,j):
+        i = i + 1
+        grill[i][j] = 1
+    return i,j
+
 
 def faire_tomber_des_blocs(k):
-    pass
+    for __ in range(k):
+        j = randint(0,p-1)
+        faire_tomber_un_bloc(j)
+    return
 
+def voir_tableau():
+    for i in range(n):
+        for j in range(p):
+            print(grill[i][j], end="")
+        print()
+    return
+voir_tableau()
 
 #Arbres browniens)
 def est_dedans(i,j):
