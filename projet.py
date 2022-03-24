@@ -28,18 +28,19 @@ def faire_tomber_un_bloc(j):
 
 
 def faire_tomber_des_blocs(k):
-    for __ in range(k):
+    for l in range(k):
         j = randint(0,p-1)
         faire_tomber_un_bloc(j)
+        l+1
     return
 
-def voir_tableau():
+def afficher():
     for i in range(n):
         for j in range(p):
             print(grill[i][j], end="")
         print()
     return
-voir_tableau()
+afficher()
 
 #Arbres browniens)
 def est_dedans(i,j):
