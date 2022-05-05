@@ -1,8 +1,12 @@
+# ffhfhfhfhfhhhfhgfhh
 from tkinter import *
 from random import *
 
 p = 6
 n = 4
+
+
+#
 
 grill =  [[0 for j in range(p)] for i in range(n)]
 # print(tableau)
@@ -41,6 +45,10 @@ def afficher():
         print()
     return
 afficher()
+
+
+
+
 
 #Arbres browniens)
 def est_dedans(i,j):
